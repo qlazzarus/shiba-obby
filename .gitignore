@@ -1,0 +1,6 @@
+/node_modules
+/out
+/include
+*.tsbuildinfo
+shiba-obby.rbxlx
+shiba-obby.rbxlx.lock
