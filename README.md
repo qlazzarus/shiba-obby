@@ -1,1 +1,1 @@
-"# shiba-obby" 
+# shiba-obby
