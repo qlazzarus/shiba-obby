@@ -1,3 +1,11 @@
-import { makeHello } from "shared/module";
+import { Players, RunService } from "@rbxts/services";
 
-print(makeHello("main.server.ts"));
+function onPlayerAdded(player: Player) {}
+
+Players.PlayerAdded.Connect(onPlayerAdded);
+
+if (RunService.IsStudio()) {
+    for (const entry of Players.GetPlayers()) {
+        onPlayerAdded(entry);
+    }
+}

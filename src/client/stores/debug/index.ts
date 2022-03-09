@@ -1,9 +1,11 @@
 import { createReducer } from "@rbxts/rodux";
 import { DebugActions, DebugState, TOGGLE_DISPLAY_KEYS_PRESSED, TOGGLE_DISPLAY_STATE } from "./types";
 
-import initialState from "./initialState";
+import state from "./initialState";
 
-export default createReducer<DebugState, DebugActions>(initialState, {
+export const initialState = state;
+
+export default createReducer<DebugState, DebugActions>(state, {
     [TOGGLE_DISPLAY_KEYS_PRESSED]: (state) => {
         return {
             ...state,

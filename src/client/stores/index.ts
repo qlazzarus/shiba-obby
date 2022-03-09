@@ -1,12 +1,10 @@
-import { combineReducers, loggerMiddleware, Store, thunkMiddleware } from "@rbxts/rodux";
-import debugReducer from "./debug";
+import { combineReducers, loggerMiddleware, Store, ThunkDispatcher, thunkMiddleware } from "@rbxts/rodux";
+import debugReducer, { initialState as debugInitialState } from "./debug";
 import type { DebugActions, DebugState } from "./debug/types";
 
-const initialState = {};
-
-const reducers = combineReducers({
-    debug: debugReducer,
-});
+const initialState = {
+    debug: debugInitialState,
+};
 
 export interface AppState {
     debug: DebugState;
@@ -14,8 +12,12 @@ export interface AppState {
 
 type AppActions = DebugActions;
 
-export default new Store<AppState, AppActions, [typeof loggerMiddleware /*, typeof thunkMiddleware*/]>(
+const reducers = combineReducers<AppState, AppActions>({
+    debug: debugReducer,
+});
+
+export default new Store<AppState, AppActions, ThunkDispatcher<AppState, AppActions>, typeof loggerMiddleware>(
     reducers,
     initialState,
-    [loggerMiddleware /*, thunkMiddleware */],
+    [thunkMiddleware, loggerMiddleware],
 );
