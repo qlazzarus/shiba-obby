@@ -1,0 +1,9 @@
+{
+	"version": 1,
+	"flameworkVersion": "1.0.0-beta.9",
+	"identifiers": {
+		"shiba-obby:out/client/controllers/AppController@AppController": "client/controllers/AppController@AppController",
+		"shiba-obby:out/shared/events@GlobalEvents": "shared/events@GlobalEvents",
+		"shiba-obby:out/shared/events@GlobalFunctions": "shared/events@GlobalFunctions"
+	}
+}
